@@ -1,2 +1,253 @@
-<meta http-equiv="refresh" content="0; url=URL_APPS_SCRIPT_KAMU_DISINI">
-<script>window.location.href = "https://script.google.com/macros/s/AKfycbzWJeYlmrbne8UjedqyP5D1eUmwyVfALV159Zt4DeskTRYk5KJY55LJlkl6Mq1PcaDT/exec"</script>
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Professional Admin Dashboard</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary-bg: #f4f7fe;
+            --sidebar-bg: #1e293b;
+            --accent-color: #3b82f6;
+            --text-main: #1e293b;
+            --text-muted: #64748b;
+            --white: #ffffff;
+            --shadow: 0 10px 25px rgba(0,0,0,0.05);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Inter', sans-serif;
+        }
+
+        body {
+            background-color: var(--primary-bg);
+            display: flex;
+            min-height: 100vh;
+        }
+
+        /* Sidebar Styling */
+        .sidebar {
+            width: 260px;
+            background-color: var(--sidebar-bg);
+            color: var(--white);
+            display: flex;
+            flex-direction: column;
+            padding: 2rem 1.5rem;
+            position: fixed;
+            height: 100vh;
+        }
+
+        .sidebar-header {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 3rem;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .sidebar-menu {
+            list-style: none;
+        }
+
+        .menu-item {
+            margin-bottom: 0.5rem;
+        }
+
+        .menu-link {
+            text-decoration: none;
+            color: #94a3b8;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            padding: 12px 15px;
+            border-radius: 12px;
+            transition: all 0.3s ease;
+        }
+
+        .menu-link:hover, .menu-link.active {
+            background-color: rgba(59, 130, 246, 0.1);
+            color: var(--white);
+        }
+
+        .menu-link i {
+            font-size: 1.1rem;
+        }
+
+        /* Main Content Styling */
+        .main-content {
+            margin-left: 260px;
+            flex: 1;
+            padding: 2.5rem;
+        }
+
+        .header-section {
+            margin-bottom: 2.5rem;
+        }
+
+        .header-section h1 {
+            font-size: 1.8rem;
+            color: var(--text-main);
+        }
+
+        .header-section p {
+            color: var(--text-muted);
+            margin-top: 5px;
+        }
+
+        /* Dashboard Cards Grid */
+        .card-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+        }
+
+        .stat-card {
+            background: var(--white);
+            padding: 25px;
+            border-radius: 20px;
+            box-shadow: var(--shadow);
+            border: 1px solid rgba(255,255,255,0.8);
+            transition: transform 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .stat-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .card-icon {
+            width: 50px;
+            height: 50px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 20px;
+            font-size: 1.4rem;
+        }
+
+        .icon-blue { background: rgba(59, 130, 246, 0.1); color: #3b82f6; }
+        .icon-purple { background: rgba(139, 92, 246, 0.1); color: #8b5cf6; }
+        .icon-emerald { background: rgba(16, 185, 129, 0.1); color: #10b981; }
+
+        .stat-card h3 {
+            font-size: 1.1rem;
+            color: var(--text-main);
+            margin-bottom: 10px;
+        }
+
+        .stat-card p {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            line-height: 1.5;
+            margin-bottom: 20px;
+        }
+
+        .btn-action {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            text-decoration: none;
+            color: var(--accent-color);
+            font-weight: 600;
+            font-size: 0.9rem;
+        }
+
+        .btn-action:hover {
+            text-decoration: underline;
+        }
+
+        /* Badge Status */
+        .status-dot {
+            width: 8px;
+            height: 8px;
+            background: #10b981;
+            border-radius: 50%;
+            display: inline-block;
+            margin-right: 5px;
+        }
+
+    </style>
+</head>
+<body>
+
+    <nav class="sidebar">
+        <div class="sidebar-header">
+            <i class="fas fa-layer-group"></i>
+            <span>Central Hub</span>
+        </div>
+        
+        <ul class="sidebar-menu">
+            <li class="menu-item">
+                <a href="#" class="menu-link active">
+                    <i class="fas fa-home"></i> Dashboard
+                </a>
+            </li>
+            <li class="menu-item">
+                <a href="#" class="menu-link">
+                    <i class="fas fa-chart-line"></i> Monitoring KPI
+                </a>
+            </li>
+            <li class="menu-item">
+                <a href="#" class="menu-link">
+                    <i class="fas fa-boxes-stacked"></i> Log Inventaris
+                </a>
+            </li>
+            <li class="menu-item">
+                <a href="#" class="menu-link">
+                    <i class="fas fa-user-shield"></i> User Control
+                </a>
+            </li>
+            <li class="menu-item" style="margin-top: auto; padding-top: 2rem;">
+                <a href="#" class="menu-link">
+                    <i class="fas fa-sign-out-alt"></i> Logout
+                </a>
+            </li>
+        </ul>
+    </nav>
+
+    <main class="main-content">
+        <header class="header-section">
+            <h1>Selamat Datang, Admin</h1>
+            <p><span class="status-dot"></span> Sistem operasional dalam kondisi optimal.</p>
+        </header>
+
+        <section class="card-grid">
+            <div class="stat-card">
+                <div class="card-icon icon-blue">
+                    <i class="fas fa-chart-pie"></i>
+                </div>
+                <h3>Laporan Kinerja (KPI)</h3>
+                <p>Pantau efektivitas layanan dan capaian target per divisi secara real-time.</p>
+                <a href="#" class="btn-action">Buka Dashboard <i class="fas fa-arrow-right"></i></a>
+            </div>
+
+            <div class="stat-card">
+                <div class="card-icon icon-purple">
+                    <i class="fas fa-clipboard-list"></i>
+                </div>
+                <h3>Manajemen Logistik</h3>
+                <p>Kelola permintaan dan ketersediaan stok barang ATK kantor secara terpusat.</p>
+                <a href="#" class="btn-action">Lihat Inventaris <i class="fas fa-arrow-right"></i></a>
+            </div>
+
+            <div class="stat-card">
+                <div class="card-icon icon-emerald">
+                    <i class="fas fa-key"></i>
+                </div>
+                <h3>Akses Kontrol (RBAC)</h3>
+                <p>Konfigurasi hak akses pengguna sesuai dengan tingkatan manajerial.</p>
+                <a href="#" class="btn-action">Kelola Akun <i class="fas fa-arrow-right"></i></a>
+            </div>
+        </section>
+    </main>
+
+</body>
+</html>
